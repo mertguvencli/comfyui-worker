@@ -10,8 +10,8 @@ It reads a JSON file containing repositories and their commit hashes, clones the
 and then checks out to the specified commit.
 """
 
-json_file = "constants/custom_nodes.json"
-comfy_dir = "ComfyUI"
+json_file = "./constants/custom_nodes.json"
+comfy_dir = "./ComfyUI"
 custom_nodes_dir = f"{comfy_dir}/custom_nodes/"
 
 with open(json_file, "r") as file:
