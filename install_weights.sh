@@ -1,4 +1,6 @@
-model_path="./ComfyUI/models"
+model_path="./models"
+
+for i in checkpoints clip clip_vision configs controlnet embeddings loras upscale_models vae; do mkdir -p models/$i; done
 
 #####################################
 # vae

@@ -36,7 +36,7 @@ def make_inference(input: Input):
     image_urls = []
 
     for ix, file in enumerate(comfyui.get_files(OUTPUT_DIR), 1):
-        prefix = f'{input.uid}/{ix}.webp'
+        prefix = f'tmp/{input.uid}/{ix}.webp'
         s3.upload(prefix=prefix, file=file, content_type=DEFAULT_CONTENT_TYPE)
         image_urls.append(s3.get_presigned_url(prefix=prefix))
 
