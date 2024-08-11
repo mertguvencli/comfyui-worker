@@ -17,4 +17,4 @@ echo "⏳ Resolving Custom Node's Dependencies"
 
 pip install GitPython typer
 echo $(pwd)
-python ./cm-cli.py restore-dependencies
+python3.10 ./cm-cli.py restore-dependencies
