@@ -2,10 +2,9 @@ from pathlib import Path
 import mimetypes
 import time
 from comfyui import ComfyUI
-from fastapi import FastAPI
-from pydantic import BaseModel
 from logger import logger
 from s3 import S3
+from _types import Input
 
 DEFAULT_CONTENT_TYPE = "image/webp"
 OUTPUT_DIR = "/tmp/outputs"
@@ -17,18 +16,9 @@ EXAMPLE_WORKFLOW_JSON = Path('constants/reset.json').read_text()
 mimetypes.add_type(DEFAULT_CONTENT_TYPE, ".webp")
 comfyui = ComfyUI("127.0.0.1:8188")
 comfyui.start_server(OUTPUT_DIR, INPUT_DIR)
-app = FastAPI()
 
 
-class Input(BaseModel):
-    uid: str | None = None
-    workflow: dict
-
-
-@app.post("/inference")
-def inference(
-    input: Input,
-):
+def make_inference(input: Input):
     execution_metrics = {}
     t0 = time.time()
     s0 = t0
