@@ -7,8 +7,8 @@ from s3 import S3
 from _types import Input
 
 DEFAULT_CONTENT_TYPE = "image/webp"
-OUTPUT_DIR = "/tmp/outputs"
-INPUT_DIR = "/tmp/inputs"
+OUTPUT_DIR = "tmp/outputs"
+INPUT_DIR = "tmp/inputs"
 COMFYUI_TEMP_OUTPUT_DIR = "ComfyUI/temp"
 ALL_DIRECTORIES = [OUTPUT_DIR, INPUT_DIR, COMFYUI_TEMP_OUTPUT_DIR]
 EXAMPLE_WORKFLOW_JSON = Path('constants/reset.json').read_text()
